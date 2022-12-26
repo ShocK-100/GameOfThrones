@@ -1,6 +1,7 @@
 import React from "react";
 import { Tooltip } from "@mui/material";
 import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
+import "../styles/Card.css";
 
 export default function Card({
   family,
@@ -13,61 +14,37 @@ export default function Card({
   title,
 }) {
   return (
-    <div
-      className="container"
-      style={{
-        border: "1px solid black",
-        width: "9rem",
-        height: "14rem",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-      }}
-    >
-      <div className="image" style={{ flex: 8, width: "100%" }}>
-        <img
-          src={imageUrl}
-          alt=""
-          style={{
-            width: "100%",
-            height: "100%",
-            maxHeight: "160px",
-            objectFit: "cover",
-          }}
-        />
+    <div className="container">
+      <div className="image-container">
+        <img src={imageUrl} alt="" />
       </div>
-      <div
-        className="under-image"
-        style={{
-          flex: 2,
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          padding: "0.5rem 0.5rem",
-        }}
-      >
+      <div className="under-image-container">
         <div
           style={{
-            display: "inline-block",
-            width: "50%",
+            display: "flex",
+            justifyContent: "center",
+            width: "70%",
+            textAlign: "center",
           }}
         >
           {fullName}
         </div>
 
-        <span style={{ paddingLeft: "1.5rem", paddingTop: "0.4rem" }}>
-          <Tooltip
-            title={
-              <>
-                {fullName}, {title}
-                <br></br>House: {family}
-              </>
-            }
-            placement="top"
-          >
-            <InfoTwoToneIcon fontSize="small" color="disabled" />
-          </Tooltip>
-        </span>
+        <Tooltip
+          title={
+            <>
+              <div className="tooltip">
+                <div>
+                  {fullName}, {title}
+                </div>
+                <div>House: {family}</div>
+              </div>
+            </>
+          }
+          placement="bottom"
+        >
+          <InfoTwoToneIcon fontSize="small" color="action" />
+        </Tooltip>
       </div>
     </div>
   );
