@@ -1,7 +1,7 @@
 import React from "react";
 import { Tooltip } from "@mui/material";
 import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
-import "../styles/Card.css";
+// import "../styles/Card.css";
 
 export default function Card({ family, fullName, imageUrl, title }) {
   return (
