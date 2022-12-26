@@ -3,6 +3,10 @@
   --main: rgb(186, 128, 4);
 }
 
+* {
+  font-family: "Skranji", cursive;
+}
+
 .characters-container {
   display: flex;
   flex-direction: column;
@@ -22,6 +26,7 @@ header {
   margin-bottom: 2rem;
   font-size: xx-large;
   color: var(--main);
+  font-family: "Rye";
 }
 
 .message {

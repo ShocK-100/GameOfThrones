@@ -47,19 +47,19 @@ const CharacterHandler = () => {
         })}
       </div>
 
-      {Object.keys(characterData)?.length > 0 &&
-        lastCardId < Object.keys(characterData)?.length && (
-          <button
-            className="more-button"
-            onClick={(e) => {
-              if (lastCardId < Object.keys(characterData)?.length) {
-                setLastCardId((currentLastId) => currentLastId + 4);
-              }
-            }}
-          >
-            More
-          </button>
-        )}
+      {Object.keys(characterData)?.length > 0 && (
+        <button
+          className="more-button"
+          disabled={lastCardId >= Object.keys(characterData)?.length}
+          onClick={(e) => {
+            if (lastCardId < Object.keys(characterData)?.length) {
+              setLastCardId((currentLastId) => currentLastId + 4);
+            }
+          }}
+        >
+          More
+        </button>
+      )}
       {Object.keys(characterData)?.length > 0 &&
         lastCardId >= Object.keys(characterData)?.length && (
           <div className="message">No more characters</div>
