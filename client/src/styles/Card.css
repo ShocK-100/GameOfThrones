@@ -1,10 +1,22 @@
+/* root */
+:root {
+  --main: rgb(186, 128, 4);
+}
+
 .container {
-  border: 1px solid black;
+  border: 4px var(--main);
+  border-style: double;
   width: 9rem;
   height: 14rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.35);
+  transition: transform 0.5s;
+}
+
+.container:hover {
+  transform: scale(1.1);
 }
 
 .image-container {
@@ -27,6 +39,13 @@ img {
   padding: 0.5rem 0.5rem;
 }
 
+.full-name {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  text-align: center;
+}
+
 .tooltip {
   padding: 0.2rem;
   display: flex;
@@ -34,4 +53,8 @@ img {
   justify-content: center;
   text-align: center;
   gap: 0.3rem;
+}
+
+.info-icon {
+  color: rgb(164 153 130);
 }

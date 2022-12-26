@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./Card";
+import "../styles/CharacterHandler.css";
+
 const CharacterHandler = () => {
   const [characterData, setCharacterData] = useState({});
   const [lastCardId, setLastCardId] = useState(4);
@@ -25,54 +27,43 @@ const CharacterHandler = () => {
   }, []);
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "2rem",
-        }}
-      >
-        Game Of Thrones
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
-          gap: "2rem",
-        }}
-      >
+    <div className="characters-container">
+      <header>Game Of Thrones</header>
+      {Object.keys(characterData)?.length === 0 && (
+        <div className="message">Fetching characters...</div>
+      )}
+      <div className="character-grid">
         {Object.keys(cardsToDisplay).map((cardKey) => {
           const card = characterData[cardKey];
           return (
             <Card
               key={card.id}
               family={card.family}
-              firstName={card.firstName}
               fullName={card.fullName}
-              id={card.id}
-              image={card.image}
               imageUrl={card.imageUrl}
-              lastName={card.lastName}
               title={card.title}
             />
           );
         })}
       </div>
 
-      <button
-        style={{ width: "80px", marginTop: "2rem" }}
-        onClick={(e) => {
-          if (lastCardId < Object.keys(characterData)?.length) {
-            setLastCardId((currentLastId) => currentLastId + 4);
-            console.log(lastCardId);
-          }
-        }}
-      >
-        More
-      </button>
+      {Object.keys(characterData)?.length > 0 &&
+        lastCardId < Object.keys(characterData)?.length && (
+          <button
+            className="more-button"
+            onClick={(e) => {
+              if (lastCardId < Object.keys(characterData)?.length) {
+                setLastCardId((currentLastId) => currentLastId + 4);
+              }
+            }}
+          >
+            More
+          </button>
+        )}
+      {Object.keys(characterData)?.length > 0 &&
+        lastCardId >= Object.keys(characterData)?.length && (
+          <div className="message">No more characters</div>
+        )}
     </div>
   );
 };
