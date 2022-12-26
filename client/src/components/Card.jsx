@@ -1,5 +1,6 @@
 import React from "react";
-// import { Tooltip } from "@mui/material";
+import { Tooltip } from "@mui/material";
+import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
 
 export default function Card({
   family,
@@ -13,44 +14,60 @@ export default function Card({
 }) {
   return (
     <div
+      className="container"
       style={{
         border: "1px solid black",
-        width: "7rem",
-        height: "15rem",
+        width: "9rem",
+        height: "14rem",
         display: "flex",
         flexDirection: "column",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "1rem",
-        alignContent: "center",
+        overflow: "hidden",
       }}
     >
-      <div style={{ marginBottom: "0.5rem" }}>
-        {/* <Tooltip title="hi">
-          <button>Register</button>
-        </Tooltip> */}
+      <div className="image" style={{ flex: 8, width: "100%" }}>
+        <img
+          src={imageUrl}
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            maxHeight: "160px",
+            objectFit: "cover",
+          }}
+        />
       </div>
-      <img
-        src={imageUrl}
-        alt=""
-        style={{
-          borderRadius: "20%",
-          height: "120px",
-          width: "120px",
-          top: "0",
-          //   objectFit: "contain",
-        }}
-      />
       <div
+        className="under-image"
         style={{
+          flex: 2,
+          width: "100%",
           display: "flex",
-          justifyContent: "center",
           alignItems: "center",
-          marginTop: "1rem",
+          padding: "0.5rem 0.5rem",
         }}
       >
-        <span style={{ marginRight: "1rem" }}>{fullName}</span>
+        <div
+          style={{
+            display: "inline-block",
+            width: "50%",
+          }}
+        >
+          {fullName}
+        </div>
+
+        <span style={{ paddingLeft: "1.5rem", paddingTop: "0.4rem" }}>
+          <Tooltip
+            title={
+              <>
+                {fullName}, {title}
+                <br></br>House: {family}
+              </>
+            }
+            placement="top"
+          >
+            <InfoTwoToneIcon fontSize="small" color="disabled" />
+          </Tooltip>
+        </span>
       </div>
     </div>
   );
