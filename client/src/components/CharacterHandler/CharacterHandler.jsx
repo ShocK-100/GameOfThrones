@@ -48,7 +48,11 @@ const CharacterHandler = () => {
 
       {Object.keys(characterData)?.length > 0 && (
         <button
-          className="more-button"
+          className={
+            lastCardId < Object.keys(characterData)?.length
+              ? "more-button"
+              : "disable-more-button"
+          }
           disabled={lastCardId >= Object.keys(characterData)?.length}
           onClick={(e) => {
             if (lastCardId < Object.keys(characterData)?.length) {

@@ -45,9 +45,6 @@ header {
   position: relative;
   display: inline-block;
   margin-top: 2rem;
-}
-
-.more-button {
   border: 2px solid var(--main);
   z-index: 1;
   color: var(--main);
@@ -76,6 +73,22 @@ header {
 
 .more-button:active {
   top: 2px;
+}
+
+.disable-more-button {
+  padding: 10px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  margin-top: 2rem;
+  border: 2px solid var(--main);
+  z-index: 1;
+  color: var(--main);
+  cursor: not-allowed;
 }
 
 /* Card Styles */
