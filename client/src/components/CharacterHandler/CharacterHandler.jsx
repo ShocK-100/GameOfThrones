@@ -17,7 +17,7 @@ const CharacterHandler = () => {
       "https://thronesapi.com/api/v2/Characters"
     );
     const data = await response.data;
-    console.log(data);
+    // console.log(data);
     setCharacterData(data);
   };
 

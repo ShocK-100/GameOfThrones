@@ -7,4 +7,9 @@ describe("CharacterHandler unit tests", () => {
     const headerElement = screen.getByTestId("CharacterHandler-header");
     expect(headerElement).toBeVisible();
   });
+  test("More button should be visible", async () => {
+    render(<CharacterHandler />);
+    const moreButton = await screen.findByRole("button");
+    expect(moreButton).toBeInTheDocument();
+  });
 });
