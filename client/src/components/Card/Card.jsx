@@ -15,7 +15,6 @@ export default function Card({ family, fullName, imageUrl, title }) {
         </div>
 
         <Tooltip
-          onClick={""}
           title={
             <>
               <div className="tooltip">
