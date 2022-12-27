@@ -7,10 +7,12 @@ export default function Card({ family, fullName, imageUrl, title }) {
   return (
     <div className="container box-inner">
       <div className="image-container">
-        <img src={imageUrl} alt="" />
+        <img data-testid="card-image" src={imageUrl} alt="" />
       </div>
       <div className="under-image-container">
-        <div className="full-name">{fullName}</div>
+        <div data-testid="card-full-name" className="full-name">
+          {fullName}
+        </div>
 
         <Tooltip
           title={
@@ -25,7 +27,11 @@ export default function Card({ family, fullName, imageUrl, title }) {
           }
           placement="bottom"
         >
-          <InfoTwoToneIcon fontSize="small" className="info-icon" />
+          <InfoTwoToneIcon
+            data-testid="card-info-button"
+            fontSize="small"
+            className="info-icon"
+          />
         </Tooltip>
       </div>
     </div>

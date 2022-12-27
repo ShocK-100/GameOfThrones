@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "./Card";
-// import "../styles/CharacterHandler.css";
+import Card from "./Card/Card";
 
 const CharacterHandler = () => {
   const [characterData, setCharacterData] = useState({});
