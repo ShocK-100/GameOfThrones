@@ -1,5 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import Card from "../Card";
+
+afterEach(cleanup);
 
 describe("Card unit tests", () => {
   test("Full Name should be visible", () => {

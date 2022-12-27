@@ -1,5 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import CharacterHandler from "../CharacterHandler";
+
+afterEach(cleanup);
 
 describe("CharacterHandler unit tests", () => {
   test("Header should be visible", () => {
