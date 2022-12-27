@@ -31,6 +31,7 @@ header {
   font-size: xx-large;
   color: var(--main);
   font-family: "Rye";
+  margin-top: 1rem;
 }
 
 .message {
@@ -41,7 +42,6 @@ header {
 /* button */
 .more-button {
   padding: 10px 25px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -81,7 +81,6 @@ header {
 
 .disable-more-button {
   padding: 10px 25px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
