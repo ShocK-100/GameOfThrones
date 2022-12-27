@@ -162,4 +162,13 @@ img {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
+
+  .full-name {
+    font-size: 1.2rem;
+  }
+
+  .more-button,
+  .disable-more-button {
+    font-size: 1.2rem;
+  }
 }
