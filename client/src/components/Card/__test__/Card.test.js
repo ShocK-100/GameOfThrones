@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Card from "../Card";
 
-describe("Card tests", () => {
+describe("Card unit tests", () => {
   test("Full Name should be visible", () => {
     render(
       <Card
@@ -14,7 +14,6 @@ describe("Card tests", () => {
     const fullNameElement = screen.getByTestId("card-full-name");
     expect(fullNameElement).toBeVisible();
   });
-
   test("info button should be visible", () => {
     render(
       <Card
@@ -27,7 +26,6 @@ describe("Card tests", () => {
     const fullNameElement = screen.getByTestId("card-info-button");
     expect(fullNameElement).toBeVisible();
   });
-
   test("Image should be visible", () => {
     render(
       <Card

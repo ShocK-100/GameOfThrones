@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "./Card/Card";
+import Card from "../Card/Card";
 
 const CharacterHandler = () => {
   const [characterData, setCharacterData] = useState({});
@@ -27,7 +27,7 @@ const CharacterHandler = () => {
 
   return (
     <div className="characters-container">
-      <header>Game Of Thrones</header>
+      <header data-testid="CharacterHandler-header">Game Of Thrones</header>
       {Object.keys(characterData)?.length === 0 && (
         <div className="message">Fetching characters...</div>
       )}

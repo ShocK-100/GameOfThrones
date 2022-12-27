@@ -1,6 +1,5 @@
-// import "./App.css";
 import "./styles/Styles.css";
-import CharacterHandler from "./components/CharacterHandler";
+import CharacterHandler from "./components/CharacterHandler/CharacterHandler";
 
 const App = () => {
   return <CharacterHandler />;
