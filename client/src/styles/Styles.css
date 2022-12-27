@@ -1,10 +1,14 @@
 /* root */
 :root {
-  --main: rgb(186, 128, 4);
+  --main: rgb(255 174 0);
+  --secondary: #ffdede;
 }
 
 * {
   font-family: "Skranji", cursive;
+}
+body {
+  background-color: black;
 }
 
 .characters-container {
@@ -63,7 +67,7 @@ header {
 }
 
 .more-button:hover {
-  color: rgb(255, 255, 255);
+  color: var(--secondary);
 }
 
 .more-button:hover:after {
@@ -91,12 +95,6 @@ header {
   cursor: not-allowed;
 }
 
-/* Card Styles */
-/* root */
-:root {
-  --main: rgb(186, 128, 4);
-}
-
 .container {
   border: 4px var(--main);
   border-style: double;
@@ -105,12 +103,14 @@ header {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 10px 10px 5px 0px rgb(127 112 112 / 35%);
   transition: transform 0.5s;
+  color: #ffebeb;
 }
 
 .container:hover {
   transform: scale(1.1);
+  font-weight: bold;
 }
 
 .image-container {
@@ -138,6 +138,10 @@ img {
   justify-content: center;
   width: 70%;
   text-align: center;
+}
+
+.full-name:hover {
+  transition: transform 0s;
 }
 
 .tooltip {

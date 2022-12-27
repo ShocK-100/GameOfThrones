@@ -5,7 +5,7 @@ import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
 
 export default function Card({ family, fullName, imageUrl, title }) {
   return (
-    <div className="container box-inner">
+    <div className="container">
       <div className="image-container">
         <img data-testid="card-image" src={imageUrl} alt="" />
       </div>
