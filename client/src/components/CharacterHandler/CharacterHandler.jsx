@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../Card/Card";
+import MoreButton from "../MoreButton/MoreButton";
 
 const CharacterHandler = () => {
   const [characterData, setCharacterData] = useState({});
   const [lastCardId, setLastCardId] = useState(4);
+  const dataLength = Object.keys(characterData)?.length;
+  const api = "https://thronesapi.com/api/v2/Characters";
   let cardsToDisplay = Object.keys(characterData)
     .slice(0, lastCardId)
     .reduce((result, key) => {
@@ -13,11 +16,8 @@ const CharacterHandler = () => {
     }, {});
 
   const fetchData = async () => {
-    const response = await axios.get(
-      "https://thronesapi.com/api/v2/Characters"
-    );
-    const data = await response.data;
-    // console.log(data);
+    const response = await axios.get(`${api}`);
+    const data = response.data;
     setCharacterData(data);
   };
 
@@ -28,7 +28,7 @@ const CharacterHandler = () => {
   return (
     <div className="characters-container">
       <header data-testid="CharacterHandler-header">Game Of Thrones</header>
-      {Object.keys(characterData)?.length === 0 && (
+      {dataLength === 0 && (
         <div className="message">Fetching characters...</div>
       )}
       <div className="character-grid">
@@ -46,27 +46,16 @@ const CharacterHandler = () => {
         })}
       </div>
 
-      {Object.keys(characterData)?.length > 0 && (
-        <button
-          className={
-            lastCardId < Object.keys(characterData)?.length
-              ? "more-button"
-              : "disable-more-button"
-          }
-          disabled={lastCardId >= Object.keys(characterData)?.length}
-          onClick={(e) => {
-            if (lastCardId < Object.keys(characterData)?.length) {
-              setLastCardId((currentLastId) => currentLastId + 4);
-            }
-          }}
-        >
-          More
-        </button>
+      {dataLength > 0 && (
+        <MoreButton
+          lastCardId={lastCardId}
+          CharacterDataLength={dataLength}
+          setLastCardId={setLastCardId}
+        />
       )}
-      {Object.keys(characterData)?.length > 0 &&
-        lastCardId >= Object.keys(characterData)?.length && (
-          <div className="message">No more characters</div>
-        )}
+      {dataLength > 0 && lastCardId >= dataLength && (
+        <div className="message">No more characters</div>
+      )}
     </div>
   );
 };
